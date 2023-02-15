@@ -16,17 +16,16 @@ set first_pj_ip=%3
 
 set /a last_pj_ip=%first_pj_ip%+%pj_count%-1
 
-:: ADBのパス、ネットワーク接続の際のポート設定
-set adbPath=C:\Tools\platform-tools\adb.exe
+:: ADBのポート設定
 set port=5555
 
 :: 一旦接続をクリアするためにadbサーバーを終了する
-%adbPath% kill-server
+adb kill-server
 
 :: プロジェクターをシャットダウンする操作を台数分繰り返す
 for /l %%i in (%first_pj_ip%, 1, %last_pj_ip%) do (
-    %adbPath% connect %ip_segment%.%%i:%port%
-    %adbPath% -s %ip_segment%.%%i:%port% shell reboot -p
+    adb connect %ip_segment%.%%i:%port%
+    adb -s %ip_segment%.%%i:%port% shell reboot -p
 )
 
 :: プロジェクターがシャットダウンするまで待機
