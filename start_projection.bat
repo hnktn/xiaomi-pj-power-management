@@ -5,8 +5,9 @@
 
 
 @echo off
-cd %~dp0
 setlocal
+
+pushd %~dp0
 
 :: •Ï”‚Éˆø”‚ğ‘ã“ü
 set ip_power_type=%1
