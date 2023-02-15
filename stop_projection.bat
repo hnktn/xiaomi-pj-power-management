@@ -1,10 +1,10 @@
-:: “Š‰e‚ðI—¹‚·‚é‚½‚ßAƒvƒƒWƒFƒNƒ^[‚ðˆÀ‘S‚ÉƒVƒƒƒbƒgƒ_ƒEƒ“‚·‚é‚½‚ß‚Ìƒoƒbƒ`ƒtƒ@ƒCƒ‹
+:: æŠ•å½±ã‚’çµ‚äº†ã™ã‚‹ãŸã‚ã€ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚¿ãƒ¼ã‚’å®‰å…¨ã«ã‚·ãƒ£ãƒƒãƒˆãƒ€ã‚¦ãƒ³ã™ã‚‹ãŸã‚ã®ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ« 
 
-:: ‘æ1ˆø” IP Power ‚ÌŒ^ 9255 or 9258 ‚ðŽw’è
-:: ‘æ2ˆø” IP Power ‚ÌIPƒAƒhƒŒƒX
-:: ‘æ3ˆø” ƒvƒƒWƒFƒNƒ^[‚Ì‘ä”
-:: ‘æ4ˆø” ƒ[ƒJƒ‹ƒlƒbƒgƒ[ƒN‚ÌIPƒZƒOƒƒ“ƒg
-:: ‘æ5ˆø” 1”Ô–Ú‚ÌƒvƒƒWƒFƒNƒ^[‚ÌIPƒAƒhƒŒƒX‚Ì––”ö
+:: ç¬¬1å¼•æ•° IP Power ã®åž‹ 9255 or 9258 ã‚’æŒ‡å®š 
+:: ç¬¬2å¼•æ•° IP Power ã®IPã‚¢ãƒ‰ãƒ¬ã‚¹ 
+:: ç¬¬3å¼•æ•° ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚¿ãƒ¼ã®å°æ•° 
+:: ç¬¬4å¼•æ•° ãƒ­ãƒ¼ã‚«ãƒ«ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ã®IPã‚»ã‚°ãƒ¡ãƒ³ãƒˆ 
+:: ç¬¬5å¼•æ•° 1ç•ªç›®ã®ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚¿ãƒ¼ã®IPã‚¢ãƒ‰ãƒ¬ã‚¹ã®æœ«å°¾ 
 
 
 @echo off
@@ -12,17 +12,17 @@ setlocal
 
 pushd %~dp0
 
-:: •Ï”‚Éˆø”‚ð‘ã“ü
+:: å¤‰æ•°ã«å¼•æ•°ã‚’ä»£å…¥ 
 set ip_power_type=%1
 set ip_power_ip_address=%2
 set pj_count=%3
 set ip_segment=%4
 set first_pj_ip=%5
 
-:: ƒvƒƒWƒFƒNƒ^[‚ðƒVƒƒƒbƒgƒ_ƒEƒ“
+:: ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚¿ãƒ¼ã‚’ã‚·ãƒ£ãƒƒãƒˆãƒ€ã‚¦ãƒ³ 
 call shutdown_projector.bat %pj_count% %ip_segment% %first_pj_ip%
 
-:: IP Power ‚Ìƒvƒ‰ƒO‚ðOFF‚ÉÝ’è
+:: IP Power ã®ãƒ—ãƒ©ã‚°ã‚’OFFã«è¨­å®š 
 if "%ip_power_type%"=="9255" (
     call set_plug_power_9255.bat 0 %ip_power_ip_address%
 ) else if "%ip_power_type%"=="9258" (

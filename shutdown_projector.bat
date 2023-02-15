@@ -1,34 +1,37 @@
-:: Xiaomi Mi Laser UST Projector 150" ��ADB�R�}���h�ň��S�ɃV���b�g�_�E������o�b�`�t�@�C��
-:: ���v���W�F�N�^�[��USB�f�o�b�O���L���ɂȂ��Ă��邱��
+:: Xiaomi Mi Laser UST Projector 150" をADBコマンドで安全にシャットダウンするバッチファイル 
+:: ※プロジェクターのUSBデバッグが有効になっていること 
 
-:: ��1���� �v���W�F�N�^�[�̑䐔
-:: ��2���� ���[�J���l�b�g���[�N��IP�Z�O�����g
-:: ��3���� 1�Ԗڂ̃v���W�F�N�^�[��IP�A�h���X�̖���
+:: 第1引数 プロジェクターの台数 
+:: 第2引数 ローカルネットワークのIPセグメント 
+:: 第3引数 1番目のプロジェクターのIPアドレスの末尾 
 
 
 @echo off
 setlocal
 
-:: �ϐ��Ɉ�������
+:: 変数に引数を代入 
 set pj_count=%1
 set ip_segment=%2
 set first_pj_ip=%3
 
 set /a last_pj_ip=%first_pj_ip%+%pj_count%-1
 
-:: ADB�̃|�[�g�ݒ�
+:: ADBのポート設定 
 set port=5555
 
-:: ��U�ڑ����N���A���邽�߂�adb�T�[�o�[���I������
-adb kill-server
+:: 一旦接続をクリアするためにadbサーバーを終了する 
+adb kill-server > nul
+adb start-server > nul 2>&1
 
-:: �v���W�F�N�^�[���V���b�g�_�E�����鑀���䐔���J��Ԃ�
+:: プロジェクターをシャットダウンする操作を台数分繰り返す 
 for /l %%i in (%first_pj_ip%, 1, %last_pj_ip%) do (
-    adb connect %ip_segment%.%%i:%port%
-    adb -s %ip_segment%.%%i:%port% shell reboot -p
+    adb connect %ip_segment%.%%i:%port% > nul
+    echo %ip_segment%.%%iのプロジェクターに接続しました。 
+    adb -s %ip_segment%.%%i:%port% shell reboot -p > nul 2>&1
+    echo %ip_segment%.%%iのプロジェクターにシャットダウンコマンドを送信しました。 
 )
 
-:: �v���W�F�N�^�[���V���b�g�_�E������܂őҋ@
-echo �v���W�F�N�^�[���V���b�g�_�E������̂�҂��Ă��܂��B
+:: プロジェクターがシャットダウンするまで待機 
+echo プロジェクターがシャットダウンするのを待っています。 
 timeout /t 10 /nobreak > nul
-echo �v���W�F�N�^�[���V���b�g�_�E�����܂����B
+echo プロジェクターがシャットダウンしました。 

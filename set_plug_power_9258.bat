@@ -1,34 +1,34 @@
-:: IP Power 9258T+Ping ‚Ìƒvƒ‰ƒO‚ÌON/OFF‚ð§Œä‚·‚éƒoƒbƒ`ƒtƒ@ƒCƒ‹
+:: IP Power 9258T+Ping ã®ãƒ—ãƒ©ã‚°ã®ON/OFFã‚’åˆ¶å¾¡ã™ã‚‹ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ« 
 
-:: ‘æ1ˆø” ƒvƒ‰ƒO‚ÌON/OFF
-:: ‘æ2ˆø” IP Power 9258T+Ping ‚ÌIPƒAƒhƒŒƒX
-:: ‘æ3ˆø”(ƒIƒvƒVƒ‡ƒ“) IP Power 9258T+Ping ‚Ìƒ|[ƒg (ƒfƒtƒHƒ‹ƒg: "80")
-:: ‘æ4ˆø”(ƒIƒvƒVƒ‡ƒ“) IP Power 9258T+Ping ‚ÌƒƒOƒCƒ“ƒ†[ƒU[–¼ (ƒfƒtƒHƒ‹ƒg: "admin")
-:: ‘æ5ˆø”(ƒIƒvƒVƒ‡ƒ“) IP Power 9258T+Ping ‚ÌƒƒOƒCƒ“ƒpƒXƒ[ƒh (ƒfƒtƒHƒ‹ƒg: "12345678")
+:: ç¬¬1å¼•æ•° ãƒ—ãƒ©ã‚°ã®ON/OFF 
+:: ç¬¬2å¼•æ•° IP Power 9258T+Ping ã®IPã‚¢ãƒ‰ãƒ¬ã‚¹ 
+:: ç¬¬3å¼•æ•°(ã‚ªãƒ—ã‚·ãƒ§ãƒ³) IP Power 9258T+Ping ã®ãƒãƒ¼ãƒˆ (ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: "80") 
+:: ç¬¬4å¼•æ•°(ã‚ªãƒ—ã‚·ãƒ§ãƒ³) IP Power 9258T+Ping ã®ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶ãƒ¼å (ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: "admin") 
+:: ç¬¬5å¼•æ•°(ã‚ªãƒ—ã‚·ãƒ§ãƒ³) IP Power 9258T+Ping ã®ãƒ­ã‚°ã‚¤ãƒ³ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ (ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: "12345678") 
 
 
 @echo off
 setlocal
 
-:: •Ï”‚Éˆø”‚ð‘ã“ü
+:: å¤‰æ•°ã«å¼•æ•°ã‚’ä»£å…¥ 
 set power=%1
 set ip=%2
 
 set port=%3
 if "%port%"=="" (set port=80) 
 
-:: IP Power‚ÌƒƒOƒCƒ“î•ñ‚ð“ü—ÍBƒfƒtƒHƒ‹ƒg‚Åƒ†[ƒU[–¼‚Í"admin"AƒpƒXƒ[ƒh‚Í"12345678"
+:: IP Powerã®ãƒ­ã‚°ã‚¤ãƒ³æƒ…å ±ã‚’å…¥åŠ›ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ãƒ¦ãƒ¼ã‚¶ãƒ¼åã¯"admin"ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯"12345678" 
 set user = %4
 if "%user%"=="" (set user=admin) 
 
 set password = %5
 if "%password%"=="" (set password=12345678) 
 
-:: curl‚ÅIP Power‚ÉHTTPƒŠƒNƒGƒXƒg‚ð‘—‚éB9258T+Ping‚Íƒvƒ‰ƒO‚ª4‚Â‚È‚½‚ßAsetpowerƒRƒ}ƒ“ƒh‚ÅŽw’è‚·‚éƒvƒ‰ƒO‚Í4‚ÂB
-curl http://%user%:%password%@%ip%:%port%/set.cmd?cmd=setpower+p61=%power%+p62=%power%+p63=%power%+p64=%power%
+:: curlã§IP Powerã«HTTPãƒªã‚¯ã‚¨ã‚¹ãƒˆã‚’é€ã‚‹ã€‚9258T+Pingã¯ãƒ—ãƒ©ã‚°ãŒ4ã¤ãªãŸã‚ã€setpowerã‚³ãƒžãƒ³ãƒ‰ã§æŒ‡å®šã™ã‚‹ãƒ—ãƒ©ã‚°ã¯4ã¤ã€‚ 
+curl \http://%user%:%password%@%ip%:%port%/set.cmd?cmd=setpower+p61=%power%+p62=%power%+p63=%power%+p64=%power% > nul
 
 if "%power%"=="1" (
-    echo ƒvƒ‰ƒO‚ðON‚É‚µ‚Ü‚µ‚½B
+    echo ãƒ—ãƒ©ã‚°ã‚’ONã«ã—ã¾ã—ãŸã€‚ 
 ) else if "%power%"=="0" (
-    echo ƒvƒ‰ƒO‚ðOFF‚É‚µ‚Ü‚µ‚½B
+    echo ãƒ—ãƒ©ã‚°ã‚’OFFã«ã—ã¾ã—ãŸã€‚ 
 )

@@ -1,7 +1,7 @@
-:: “Š‰e‚ðŠJŽn‚·‚é‚½‚ßAƒvƒƒWƒFƒNƒ^[‚ð‹N“®‚µA“ü—Í‚ðIDMI1‚ÉØ‚è‘Ö‚¦‚éƒoƒbƒ`ƒtƒ@ƒCƒ‹
+:: æŠ•å½±ã‚’é–‹å§‹ã™ã‚‹ãŸã‚ã€ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ã‚¿ãƒ¼ã‚’èµ·å‹•ã—ã€å…¥åŠ›ã‚’IDMI1ã«åˆ‡ã‚Šæ›¿ãˆã‚‹ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ« 
 
-:: ‘æ1ˆø” IP Power ‚ÌŒ^ 9255 or 9258 ‚ðŽw’è
-:: ‘æ2ˆø” IP Power ‚ÌIPƒAƒhƒŒƒX
+:: ç¬¬1å¼•æ•° IP Power ã®åž‹ 9255 or 9258 ã‚’æŒ‡å®š 
+:: ç¬¬2å¼•æ•° IP Power ã®IPã‚¢ãƒ‰ãƒ¬ã‚¹ 
 
 
 @echo off
@@ -9,11 +9,11 @@ setlocal
 
 pushd %~dp0
 
-:: •Ï”‚Éˆø”‚ð‘ã“ü
+:: å¤‰æ•°ã«å¼•æ•°ã‚’ä»£å…¥ 
 set ip_power_type=%1
 set ip_power_ip_address=%2
 
-:: IP Power ‚Ìƒvƒ‰ƒO‚ðON‚ÉÝ’è
+:: IP Power ã®ãƒ—ãƒ©ã‚°ã‚’ONã«è¨­å®š 
 if "%ip_power_type%"=="9255" (
     call set_plug_power_9255.bat 1 %ip_power_ip_address%
 ) else if "%ip_power_type%"=="9258" (
