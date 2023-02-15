@@ -19,7 +19,7 @@ start_projection.bat <ip_power_type> <ip_power_ip_address>
 - 第1引数 IP Power の型 `9255` or `9258` を指定
 - 第2引数 IP Power のIPアドレス
 
-例：IP Power 9258T+Ping（`192.168.0.100`）を使用して4台のプロジェクターを起動する場合
+例：IP Power 9258T+Ping（`192.168.0.100`）を使用してプロジェクターを起動する場合
 ```
 start_projection.bat 9258 192.168.0.100
 ```
