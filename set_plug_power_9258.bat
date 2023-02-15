@@ -1,3 +1,5 @@
+@chcp 65001 > nul
+
 :: IP Power 9258T+Ping のプラグのON/OFFを制御するバッチファイル 
 
 :: 第1引数 プラグのON/OFF 

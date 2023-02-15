@@ -1,3 +1,5 @@
+@chcp 65001 > nul
+
 :: IP Power 9255Pro のプラグのON/OFFを制御するバッチファイル 
 
 :: 第1引数 プラグのON/OFF 
