@@ -25,7 +25,7 @@ set password = %5
 if "%password%"=="" (set password=12345678) 
 
 :: curlでIP PowerにHTTPリクエストを送る。9255Proはプラグが1つなため、setpowerコマンドで指定するプラグは1つ。
-curl -u %user%:%password% http://%ip%:%port%/set.cmd?cmd=setpower+p61=%power%
+curl http://%user%:%password%@%ip%:%port%/set.cmd?cmd=setpower+p61=%power%
 
 if "%power%"=="1" (
     echo プラグをONにしました。
