@@ -1,5 +1,6 @@
 @chcp 65001 > nul
 
+
 :: Xiaomi Mi Laser UST Projector 150" をADBコマンドで安全にシャットダウンするバッチファイル 
 :: ※プロジェクターのUSBデバッグが有効になっていること 
 
