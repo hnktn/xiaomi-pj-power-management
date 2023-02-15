@@ -5,6 +5,7 @@
 
 
 @echo off
+cd %~dp0
 setlocal
 
 :: •Ï”‚Éˆø”‚ð‘ã“ü
