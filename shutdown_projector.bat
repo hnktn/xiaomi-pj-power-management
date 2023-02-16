@@ -59,7 +59,7 @@ set /a last_pj_ip=%first_pj_ip%+%pj_count%-1
 set port=5555
 
 :: 一旦接続をクリアするためにadbサーバーを終了する 
-adb kill-server > nul
+adb kill-server > nul 2>&1
 adb start-server > nul 2>&1
 
 :: プロジェクターをシャットダウンする操作を台数分繰り返す 
