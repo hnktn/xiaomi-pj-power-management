@@ -53,11 +53,7 @@ set ip_power_ip_address=%2
 pushd %~dp0
 
 :: IP Power のプラグをONに設定 
-if "%ip_power_type%"=="9255" (
-    call set_plug_power_9255.bat 1 %ip_power_ip_address%
-) else if "%ip_power_type%"=="9258" (
-    call set_plug_power_9258.bat 1 %ip_power_ip_address%
-)
+call set_plug_power.bat 1 %ip_power_type% %ip_power_ip_address%
 
 if %errorlevel%==1 (
     exit /b 1

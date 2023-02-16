@@ -69,11 +69,7 @@ if %errorlevel%==1 (
 echo.
 
 :: IP Power のプラグをOFFに設定 
-if "%ip_power_type%" equ "9255" (
-    call set_plug_power_9255.bat 0 %ip_power_ip_address%
-) else if "%ip_power_type%" equ "9258" (
-    call set_plug_power_9258.bat 0 %ip_power_ip_address%
-)
+call set_plug_power.bat 0 %ip_power_type% %ip_power_ip_address%
 
 if %errorlevel%==1 (
     exit /b 1
