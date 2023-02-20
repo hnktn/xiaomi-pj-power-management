@@ -64,7 +64,7 @@ adb start-server > nul 2>&1
 
 :: プロジェクターをシャットダウンする操作を台数分繰り返す 
 for /l %%i in (%first_pj_ip%, 1, %last_pj_ip%) do (
-    echo %ip_segment%.%%iのプロジェクターに接続しています
+    echo %ip_segment%.%%iのプロジェクターに接続しています 
     adb connect %ip_segment%.%%i:%port%
     echo.
     adb -s %ip_segment%.%%i:%port% shell reboot -p > nul 2>&1
